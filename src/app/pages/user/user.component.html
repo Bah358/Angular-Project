@@ -1,0 +1,35 @@
+<div class="container mt-5 pt-5">
+  <app-search></app-search>
+  <app-spinner *ngIf="connection.loading"></app-spinner>
+  <div class="container">
+    <a>
+      <i
+        class="bi bi-arrow-left-circle fs-1"
+        (click)="navigation.navigateTo('/users')"
+      ></i>
+    </a>
+    <div class="row" *ngIf="!connection.loading">
+      <div class="col-md-6 col-12 d-flex">
+        <img
+          src="{{ connection.user.avatar }}"
+          alt="{{ connection.user.first_name }}"
+          class="rounded-circle img-fluid"
+          height="500"
+          width="500"
+        />
+      </div>
+      <div class="col-md-6 col-12 d-flex flex-column justify-content-center">
+        <h1 class="display-6 fw-bold">
+          {{ connection.user.first_name }} {{ connection.user.last_name }}
+        </h1>
+        <h3 class="fw-bold">Id: {{ connection.user.id }}</h3>
+
+        <h2 class="fw-bold">
+          <a href="mailto:{{ connection.user.email }}">{{
+            connection.user.email
+          }}</a>
+        </h2>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+  <!--pagination code-->
+  <div class="row">
+    <div class="col-md-12">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+          <li
+            class="page-item {{ connection.page === 1 && 'disabled' }}"
+            (click)="getUsers(connection.page - 1)"
+          >
+            <a class="page-link" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li
+            class="page-item {{ connection.page - 1 === i ? 'active' : null }}"
+            aria-current="page"
+            *ngFor="let i of arrayFrom(connection.total_pages)"
+          >
+            <a class="page-link" (click)="getUsers(i + 1)">{{ i + 1 }}</a>
+          </li>
+
+          <li
+            class="page-item {{
+              connection.page === connection.total_pages && 'disabled'
+            }}"
+            (click)="getUsers(connection.page + 1)"
+          >
+            <a class="page-link">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="container mt-5 pt-5">
+  <app-search></app-search>
+  <app-pagination></app-pagination>
+  <app-spinner *ngIf="connection.loading"></app-spinner>
+  <div class="row" *ngIf="!connection.loading">
+    <app-user-card
+      class="col-lg-3 col-md-4 col-sm-6 col-12 my-3"
+      data-aos="fade-up"
+      *ngFor="let user of connection.users[connection.page - 1]"
+      [user]="user"
+    ></app-user-card>
+  </div>
+</div>

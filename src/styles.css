@@ -1,1 +1,177 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+  --primary-color: #436ab2;
+  --secondary-color: #6299ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  transition: all 0.2s ease-out;
+}
+
+a {
+  text-decoration: none !important;
+  cursor: pointer;
+}
+
+i {
+  color: var(--primary-color);
+}
+i:hover {
+  color: var(--secondary-color);
+}
+
+body {
+  background: #e9f1ff;
+  min-height: 100vh;
+}
+header {
+  background-color: #fff;
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 100;
+  padding: 0.7rem 0;
+}
+
+.logo {
+  width: 10rem;
+}
+
+.navig {
+  display: flex;
+  align-items: center;
+}
+
+.navig ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+  height: 100%;
+}
+
+.navig ul li {
+  color: var(--primary-color);
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 1.5rem;
+}
+
+.navig .list li:hover,
+.navig .list li.active {
+  color: var(--secondary-color);
+}
+
+.mobileToggle {
+  display: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+}
+
+.close {
+  position: absolute;
+  top: 0.6rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  cursor: pointer;
+  display: none;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+  display: none;
+}
+
+@media (max-width: 994px) {
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+  }
+  .close {
+    display: block;
+  }
+  .navig {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: -100%;
+    width: 15rem;
+    max-width: 100%;
+    z-index: 100;
+    background-color: #fff;
+    transition: all 0.5s ease;
+    box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: start;
+  }
+  .navig.active {
+    right: 0%;
+  }
+  .navig ul {
+    flex-direction: column;
+    align-items: start;
+    height: auto;
+    width: 100%;
+    margin-top: 3rem;
+  }
+  .navig ul li {
+    padding: 1rem 2rem;
+    width: 100%;
+    border-bottom: 1px solid #eee;
+  }
+
+  .navig .list li:hover,
+  .navig .list li.active {
+    color: white;
+    background: var(--primary-color);
+  }
+
+  .navig .list li:last-child {
+    border-bottom: none;
+  }
+
+  .backdrop {
+    display: block;
+  }
+  .backdrop.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 1rem !important;
+  border: none !important;
+  box-shadow: 0 0 0.7rem rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem 1rem 0 0;
+}
+
+.card:hover {
+  transform: translateY(-0.5rem);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.4);
+}

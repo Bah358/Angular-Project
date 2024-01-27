@@ -1,0 +1,35 @@
+<header>
+  <div class="container d-flex justify-content-between">
+    <div class="logo">
+      <img
+        src="../../assets/images/Get-a-full-time-maid-or-a-maid-visa.svg"
+        alt="Logo"
+      />
+    </div>
+    <nav class="navig {{ navigationService.openSidebar ? 'active' : null }}">
+      <ul class="list">
+        <li
+          *ngFor="let item of navigationService.navigation"
+          (click)="navigationService.navigateTo(item.path)"
+          class="{{ navigationService.path === item.path ? 'active' : null }}"
+        >
+          <a>{{ item.name }}</a>
+        </li>
+      </ul>
+      <i
+        class="bi bi-x close"
+        (click)="navigationService.openSidebar = !navigationService.openSidebar"
+      ></i>
+    </nav>
+    <div class="mobileToggle">
+      <i
+        class="bi bi-list"
+        (click)="navigationService.openSidebar = !navigationService.openSidebar"
+      ></i>
+      <div
+        class="backdrop {{ navigationService.openSidebar && 'active' }}"
+        (click)="navigationService.openSidebar = !navigationService.openSidebar"
+      ></div>
+    </div>
+  </div>
+</header>

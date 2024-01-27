@@ -1,0 +1,14 @@
+<div
+  class="card"
+  (click)="navigationService.navigateToUser('/user', user.id!)"
+  title="{{ user.first_name }} {{ user.last_name }}"
+>
+  <div class=""><img src="{{ user.avatar }}" class="w-100" alt="" /></div>
+  <div class="card-body">
+    <h5 class="card-title">{{ user.first_name }} {{ user.last_name }}</h5>
+    <p class="card-text m-0">Id: {{ user.id }}</p>
+    <a class="small" href="mailto:{{ user.email }}"
+      ><i class="bi bi-envelope me-1"></i>{{ user.email }}</a
+    >
+  </div>
+</div>
